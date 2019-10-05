@@ -1,0 +1,10 @@
+.bar {
+    fill: black;
+  }
+#div_bar_graph {
+    text-align: center;
+}
+
+button {
+    margin: 10px 10px 10px 10px;
+}

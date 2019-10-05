@@ -1,0 +1,16 @@
+<button (click)="reset()">
+    Reset
+</button>
+<button (click)="insertionSort()">
+    Insertion Sort
+</button>
+<div id="div_bar_graph">
+    <svg class="chart" width="900" height="1000" role="img" style="display: block;margin: auto;">
+        <g *ngFor="let item of arr; index as i" class="bar">
+          <rect width="9" attr.x.px="{{i*10}}" attr.height.px="{{item}}"></rect>
+        </g>
+        <!-- <g class="bar">
+          <rect width="19" height="40"></rect>
+        </g>-->
+      </svg>
+</div>

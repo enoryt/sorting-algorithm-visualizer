@@ -8,14 +8,15 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { BarGraphComponent } from './bar-graph/bar-graph.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: '', component: BarGraphComponent },
+      { path: 'bargraphs', component: BarGraphComponent},
     ])
   ],
   declarations: [
@@ -23,7 +24,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    BarGraphComponent
   ],
   bootstrap: [ AppComponent ]
 })
