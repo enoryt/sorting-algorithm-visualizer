@@ -8,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class BarGraphComponent implements OnInit {
 
   arr = [];
-  height = 200
+  height = 200;
+  isSorting = false;
 
 
   constructor() { }
 
   async insertionSort() {
+    if(this.isSorting){
+      return;
+    }
+    this.isSorting = true;
     for (var i = 1; i < this.arr.length; i++) {
       var key = this.arr[i];
       var j = i - 1;
@@ -25,6 +30,7 @@ export class BarGraphComponent implements OnInit {
       await this.delay(150);
     }
     console.log(this.arr);
+    this.isSorting =false;
   }
 
   delay(ms: number) {
@@ -32,6 +38,9 @@ export class BarGraphComponent implements OnInit {
   }
 
   reset() {
+    if(this.isSorting){
+      return;
+    }
     this.arr = [];
     for (var i = 0, t = 80; i < t; i++) {
       this.arr.push(Math.floor(Math.random() * 600) + 50)
@@ -39,12 +48,18 @@ export class BarGraphComponent implements OnInit {
     console.log(this.arr);
   }
 
-  mergeSort() {
-    this.mergeSortHelper(0, this.arr.length-1);
+  async mergeSort() {
+    if(this.isSorting){
+      return;
+    }
+    this.isSorting = true;
+    console.log(this.isSorting);
+    await this.mergeSortHelper(0, this.arr.length-1);
     console.log(this.arr);
+    this.isSorting = false;
   }
 
-  async merge(l: number, m: number, r: number) {    
+  async merge(l: number, m: number, r: number) {
     var i = 0;
     var j = 0;
     var k = 0;
